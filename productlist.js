@@ -8,23 +8,29 @@ console.log("category param: " + category);
 
 if (category == "Accessories") {
     url = "https://kea-alt-del.dk/t7/api/products?limit=40&category=Accessories";
+    // set the category title based on category parameter
+    document.querySelector("#categoryTitle").textContent = "Accessories";
 } else if(category == "Apparel") {
     url = "https://kea-alt-del.dk/t7/api/products?limit=40&category=Apparel";    
+    document.querySelector("#categoryTitle").textContent = "Apparel";
 } else if(category =="Footwear"){
     url ="https://kea-alt-del.dk/t7/api/products?limit=40&category=Footwear"
-} else if(category =="Free items"){
+    document.querySelector("#categoryTitle").textContent = "Footwear";
+} else if(category =="FreeItems"){
     url ="https://kea-alt-del.dk/t7/api/products?limit=40&category=Free%20Items"
-}else if(category =="Personal care"){
+    document.querySelector("#categoryTitle").textContent = "Free Items";
+}else if(category =="PersonalCare"){
     url ="https://kea-alt-del.dk/t7/api/products?limit=40&category=Personal%20Care"
+    document.querySelector("#categoryTitle").textContent = "Personal Care";
 }else if(category =="Sport"){
     url ="https://kea-alt-del.dk/t7/api/products?limit=40&category=Sporting%20Goods"
+    document.querySelector("#categoryTitle").textContent = "Sport";
 }
 else {
     url = "https://kea-alt-del.dk/t7/api/products";
 }
 
-// set the category title based on category parameter
-document.querySelector("#categoryTitle").textContent = category;
+
 
  fetch(url)
  .then(function(res){
@@ -85,7 +91,7 @@ document.querySelector("#categoryTitle").textContent = category;
     //    <p>Now DKK 1560,-</p>
     //    <p>-34%</p>
     //  </div>
-    copy.querySelector(".discounted p").textContent = Math.floor(product.price-((product.price * product.discount)/100));
+    copy.querySelector(".discounted p span").textContent = Math.floor(product.price-((product.price * product.discount)/100));
     }
 
     const parent = document.querySelector("main");
